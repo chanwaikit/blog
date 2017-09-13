@@ -1,4 +1,4 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 import styled from 'styled-components'
 
 const Wrapper = styled.nav`
@@ -15,9 +15,9 @@ const Wrapper = styled.nav`
 
 const Nav = () => (
   <Wrapper>
-    <Link href='/'><a>Home</a></Link> |
-    <Link href='/about' prefetch><a>About</a></Link> |
-    <Link href='/contact' prefetch><a>Contact</a></Link>
+    <a href='/'>Home</a> |
+    <a href='/about'>About</a> |
+    <a href='/contact' >Contact</a>
   </Wrapper>
 )
 
