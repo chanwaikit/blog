@@ -25,28 +25,81 @@ const Wrapper = styled.div`
     margin: 0;
   }
 
+  li{
+    line-height: 28px;
+    font-family: "PT Sans", sans-serif;
+  }
+
+
+
   p {
     line-height: 28px;
-    color: #666;
     font-family: "PT Sans", sans-serif;
   }
 `
 
-const PostPage = ({ content,title  }) =>
-   <Layout>
+const Content = styled.div`
+  background-color: #fff;
+  font-size: 15px;
+  color: #333;
+  @media screen and (min-width: 770px) {
+    min-height: 500px;
+    & a:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  & a {
+    color: #3194d0;
+  }
+  & p,
+  & li {
+    line-height: 1.8;
+  }
+  & img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    @media screen and (min-width: 770px) {
+      max-width: 500px;
+    }
+  }
+  & code {
+    background: #f2f2f2;
+    padding: 2px 5px;
+  }
+  & pre {
+    background: #f2f2f2;
+    padding: 20px;
+    overflow-x: auto;
+    line-height: 1.8;
+    & > code {
+      padding: 0;
+    }
+  }
+`;
+
+
+
+export default class Post extends React.PureComponent {
+  static async getInitialProps({ query }) {
+    const content = converter.makeHtml(query.content);
+    return { content:content,title:query.title  }
+  }
+
+
+  render() {
+    const { title, content, date } = this.props;
+
+    return (
+      <Layout>
     <Wrapper>
       <h1>
        {title}
       </h1>
-      <p dangerouslySetInnerHTML={{ __html: content }}> 
-      </p>
+      <Content dangerouslySetInnerHTML={{ __html: content }}/>
     </Wrapper>
   </Layout>
- 
-
-PostPage.getInitialProps = async ({ query }) => {
-  const content = converter.makeHtml(query.content);
-  return { content:content,title:query.title  }
+    );
+  }
 }
-
-export default PostPage

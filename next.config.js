@@ -1,19 +1,6 @@
 const path = require('path')
 const readArticles = require("./lib/readArticles");
 module.exports = {
-  webpack: (config, { dev }) => {
-    // Perform customizations to webpack config
-
-    // Important: return the modified config
-    // config.resolve.modules = [path.resolve(__dirname, "components"), "node_modules"]
-    return config
-  },
-  webpackDevMiddleware: (config) => {
-    // Perform customizations to webpack dev middleware config
-
-    // Important: return the modified config
-    return config
-  },
   async exportPathMap() {
     const files = await readArticles();
     const pages = files.reduce(
@@ -28,6 +15,12 @@ module.exports = {
     );
 
     return Object.assign({}, pages, {
+      "/about": {
+        page: "/about"
+      },
+      "/contact": {
+        page: "/contact"
+      },
       "/": {
         page: "/",
         query: {

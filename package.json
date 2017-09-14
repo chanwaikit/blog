@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build && next export",
-    "start": "NODE_PATH=. NODE_ENV=production node server.js",
+    "start": "node server.js NODE_PATH=. NODE_ENV=production",
     "lint": "standard 'api/*' 'components/*' 'layouts/*' 'pages/*' 'styles/*' 'routes.js' 'server.js'",
     "precommit": "lint-staged"
   },
@@ -32,14 +32,12 @@
     "alias": "blog"
   },
   "standard": {
-    "parser": "babel-eslint",
     "ignore": [
       "**/node_modules/**"
     ]
   },
   "lint-staged": {
     "*.js": [
-      "standard --fix",
       "git add"
     ]
   },

@@ -4,21 +4,6 @@ import Layout from 'layouts/Main'
 
 import Post from 'components/Post'
 
-// const IndexPage = ({ articles }) =>
-//   <Layout>
-//     <ul>
-//       {articles.map(p => <Post key={p.title} post={p} />)}
-//     </ul>
-//   </Layout>
-
-// IndexPage.getInitialProps = async ({ query  }) => {
-//   return { articles: query.articles || [] };
-// }
-
-// export default IndexPage
-
-
-
 
 export default class Index extends React.PureComponent {
 	static async getInitialProps({ query }) {
