@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "NODE_PATH=. NODE_ENV=production node server.js",
     "lint": "standard 'api/*' 'components/*' 'layouts/*' 'pages/*' 'styles/*' 'routes.js' 'server.js'",
     "precommit": "lint-staged"
