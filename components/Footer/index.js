@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 
 const Footer = styled.footer`
-  padding: 15px;
-  background: #F5F5F5;
+	height:80px;
+  	-webkit-text-align: center;
+    text-align: center;
+    font-size: 11px;
+    border-top: 1px solid #EEE;
+    width:99%;
+    text-align:center;
+   
 `
 
 export default Footer

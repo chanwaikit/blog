@@ -1,41 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from 'layouts/Main'
-import { getPost } from 'api/posts'
 import showdown from "showdown";
 const converter = new showdown.Converter();
 
 const Wrapper = styled.div`
-  padding: 3rem;
-  max-width: 750px;
-  margin: 0 auto;
-
-  @media (max-width: 750px) {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  h1 {
-    color: #222;
-    font-weight: bold;
-    font-size: 1.75rem;
-    line-height: 35px;
-    font-family: "PT Sans", sans-serif;
-    text-transform: capitalize;
-    margin: 0;
-  }
-
-  li{
-    line-height: 28px;
-    font-family: "PT Sans", sans-serif;
-  }
-
-
-
-  p {
-    line-height: 28px;
-    font-family: "PT Sans", sans-serif;
-  }
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+  margin: 0 0 50px 0;
+  
+  h2{ 
+      margin: 0 0 20px 0;
+      padding: 0;
+      font-size: 25px;
+      color: #333;
+    }
 `
 
 const Content = styled.div`
@@ -50,7 +30,12 @@ const Content = styled.div`
     }
   }
   & a {
-    color: #3194d0;
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  & ul{
+    padding-left: 2em;
   }
   & p,
   & li {
@@ -65,11 +50,12 @@ const Content = styled.div`
     }
   }
   & code {
-    background: #f2f2f2;
+    background: #f6f8fa;
     padding: 2px 5px;
   }
   & pre {
-    background: #f2f2f2;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background: #f6f8fa;
     padding: 20px;
     overflow-x: auto;
     line-height: 1.8;
@@ -84,19 +70,19 @@ const Content = styled.div`
 export default class Post extends React.PureComponent {
   static async getInitialProps({ query }) {
     const content = converter.makeHtml(query.content);
-    return { content:content,title:query.title  }
+    return { content:content,title:query.title,articles:query.articles  }
   }
 
 
   render() {
-    const { title, content, date } = this.props;
+    const { title, content, date,articles } = this.props;
 
     return (
-      <Layout>
+      <Layout articles={articles}>
     <Wrapper>
-      <h1>
+      <h2>
        {title}
-      </h1>
+      </h2>
       <Content dangerouslySetInnerHTML={{ __html: content }}/>
     </Wrapper>
   </Layout>

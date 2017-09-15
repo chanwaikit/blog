@@ -4,26 +4,17 @@ const Wrapper = styled.div`
   border-bottom: 1px solid #ddd;
 
   a {
-    padding: 15px;
     text-decoration: none;
     display: block;
-
+    margin: 0 10px 8px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    
     &:hover {
       background: #F5F5F5;
 
-      h3 { color: #387EF5 }
     }
   }
 
-  h3 {
-    color: #222;
-    font-weight: bold;
-    font-size: 1.75rem;
-    line-height: 35px;
-    font-family: "PT Sans", sans-serif;
-    text-transform: capitalize;
-    margin: 0;
-  }
 
   p {
     font-size: 1.2rem;

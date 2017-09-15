@@ -82,7 +82,7 @@ module.exports = {
 	}
 };
 ```
-于是就得动态生成路由，readArticles里头用到了fs，这里封装了一层，可以将本地的你想要的文件读出来得到数组，每一项就是处理后md生成的对象（包括title，date，content什么的），再通过query对象可以传到./pages/post.js，在组建中 `getInitialProps`方法里头接收，再通过showdown.Converter()将其转成html，使用dangerouslySetInnerHTML={{ __html: query.content }}成功转成页面。
+于是就得动态生成路由，readArticles里头用到了fs，这里封装了一层，可以将本地的你想要的文件读出来得到数组，每一项就是处理后md生成的对象（包括title，date，content什么的），再通过query对象可以传到./pages/post.js，在组件中 `getInitialProps`方法里头接收，再通过showdown.Converter()将其转成html，使用dangerouslySetInnerHTML={{ __html: query.content }}成功转成页面。
 
 接着看，我将next-go项目里的next-router去掉了，因为传参的原因，用它的router进行传参，他会将参数拼接到url后面。于是我用a标签替代路由跳转的动作，并且用express做了处理。
 

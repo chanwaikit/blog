@@ -8,7 +8,17 @@ module.exports = {
         Object.assign({}, pages, {
           [file.link]: {
             page: "/post",
-            query: { content: file.result.content }
+            query: {
+              title: file.title,
+              content: file.result.content, 
+              articles: files.map(item => ({
+              link: item.link,
+              title: item.title,
+              date: item.date,
+              result: item.result,
+              fileName: item.fileName
+          }))
+            }
           }
         }),
       {}
@@ -26,7 +36,10 @@ module.exports = {
         query: {
           articles: files.map(item => ({
             link: item.link,
-            title: item.title
+            title: item.title,
+            date: item.date,
+            result: item.result,
+            fileName: item.fileName
           }))
         }
       }
