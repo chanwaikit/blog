@@ -68,17 +68,17 @@ const Content = styled.div`
 `;
 
 export default class Index extends React.PureComponent {
-	static async getInitialProps({ query }) {
+	static async getInitialProps({ query,pathname }) {
 		const obj = query.articles[0];
 		const content = converter.makeHtml(obj.result.content);
 		const title = obj.title;
-		return { articles: query.articles,content:content,title:title};
+		return { articles: query.articles,content:content,title:title,pathname:pathname};
 	}
 
 	render() {
-		const { articles,title,content } = this.props;
+		const { articles,title,content ,pathname } = this.props;
 		return (
-			<Layout articles={articles}>
+			<Layout articles={articles} pathname={pathname}>
     			<Wrapper>
       				<h2>
        					{title}

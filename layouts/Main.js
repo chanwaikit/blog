@@ -51,7 +51,7 @@ const ContentBody = styled.div`
 export default class Main extends React.PureComponent {
 
   render() {
-    const { children, title = "kit's blog",articles = []} = this.props;
+    const { children, title = "kit's blog",articles = [],pathname} = this.props;
     return (
       <div>
         <Head>
@@ -68,7 +68,7 @@ export default class Main extends React.PureComponent {
                 <MenuBody>
                   <h3>Basics</h3>
                     <ul>
-                      {articles.map((p,index) => <Post key={p.link} index={index} post={p} />)}
+                      {articles.map((p,index) => <Post key={p.link} pathname={pathname} index={index} post={p} />)}
                     </ul>
                 </MenuBody>
               </Menu>

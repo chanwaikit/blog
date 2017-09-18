@@ -9,6 +9,7 @@ module.exports = {
           [file.link]: {
             page: "/post",
             query: {
+              link:file.link,
               title: file.title,
               content: file.result.content, 
               articles: files.map(item => ({

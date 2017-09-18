@@ -13,6 +13,7 @@ async function start () {
   server.get('/post/:name', (req, res) => {
     const file = files.find(item => item.link === req.path)
     return app.render(req, res, '/post', {
+      link:file.link,
       content: file.content,
       title: file.title,
       articles: files.map(item => ({

@@ -3,6 +3,7 @@ import { ServerStyleSheet } from 'styled-components'
 import 'styles/global-styles'
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
+
 export default class SiteDocument extends Document {
   render () {
     const sheet = new ServerStyleSheet()

@@ -70,15 +70,16 @@ const Content = styled.div`
 export default class Post extends React.PureComponent {
   static async getInitialProps({ query }) {
     const content = converter.makeHtml(query.content);
-    return { content:content,title:query.title,articles:query.articles  }
+    const pathname = query.link;
+    return { content:content,title:query.title,articles:query.articles,pathname:pathname  }
   }
 
 
   render() {
-    const { title, content, date,articles } = this.props;
+    const { title, content, date,articles,pathname } = this.props;
 
     return (
-      <Layout articles={articles}>
+      <Layout articles={articles} pathname={pathname}>
     <Wrapper>
       <h2>
        {title}

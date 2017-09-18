@@ -37,13 +37,13 @@ export default class PostItem extends React.PureComponent {
 	
 
 	render() {
-		const { post,title,link,index,url} = this.props;
+		const { post,title,link,index,pathname } = this.props;
 		return (
 			<Wrapper>
 				<WrapperDiv>
-  					<a href={post.link}>
+  					<a style={pathname == post.link || (pathname=='/'&&index == 0)?{'fontWeight': 600,color: '#E25E5E'}:{}} href={post.link}>
   						{post.date} - {post.title}
-       				</a>
+       			</a>
        			</WrapperDiv>
   			</Wrapper>
 		);
