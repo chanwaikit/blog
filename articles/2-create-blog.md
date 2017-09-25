@@ -21,12 +21,20 @@ Create React App 就是这样一种工具。
 关于[Next.js文档](https://github.com/zeit/next.js)的一些基础内容
 - 所有的.js文件会自动处理和渲染，并形成路由。
 - 服务器渲染索引根目录下的 ./pages 文件夹
-- 静态文件放在./static/中对应路由的/static/   例如 img src="/static/my-image.png" 
-- 暴露<head>供组件里头设置，在<head>里头可以设置title等等
+- 静态文件放在./static/中对应路由的/static/  
+ 例如
+```js
+ <img src="/static/my-image.png">
+``` 
+- 暴露head组件供其他组件里头设置，在head里头可以设置title等头部信息。
 - 我们能在顶级组件中的getInitialProps({pathname,query,asPath,req,res,jsonPageRes})获取到相应信息。query在服务器上配置自定义路由时很有用
-- 自定义路由 const app = require('next')({process.env.NODE_ENV !== 'production'}); app.render()里可将query自定义的obj传进来供getInitialProps传进来供其使用。
+- 自定义路由,app.render里可将query自定义的obj传进来供getInitialProps传进来供其使用。
+```js
+const app = require('next')({process.env.NODE_ENV !== 'production'}); 
+app.render(req, res, path,query)
+``` 
 - 支持动态导入 Dynamic Import
-- 自定义document，加载./pages的_document.js文件。用来改写 <html>，<body> 的默认行为
+- 自定义document，加载./pages的_document.js文件。用来改写 html，body标签的默认行为
 - next.config.js可设置静态html导出 
 
 在[next-go项目](https://github.com/timberio/next-go/)的基础上做了一些修改。

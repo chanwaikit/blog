@@ -1,9 +1,19 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import styled from 'styled-components'
 import 'styles/global-styles'
-import Footer from 'components/Footer'
 import Nav from 'components/Nav'
 
+const Footer = styled.footer`
+  height:80px;
+    -webkit-text-align: center;
+    text-align: center;
+    font-size: 11px;
+    border-top: 1px solid #EEE;
+    width:99%;
+    text-align:center;
+   
+`
 export default class SiteDocument extends Document {
   render () {
     const sheet = new ServerStyleSheet()
